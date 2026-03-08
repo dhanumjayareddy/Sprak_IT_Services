@@ -1,0 +1,22 @@
+# Robots.txt for Spark IT Services
+# Allow all web crawlers to access all content
+User-agent: *
+Allow: /
+
+# Disallow access to admin areas (if any in future)
+Disallow: /admin/
+Disallow: /private/
+Disallow: /temp/
+
+# Disallow access to CSS and JS files (optional - remove if you want them crawled)
+# Disallow: /css/
+# Disallow: /js/
+
+# Disallow access to assets folder (logos don't need to be crawled individually)
+Disallow: /assets/
+
+# Crawl-delay to be respectful to server (optional)
+Crawl-delay: 1
+
+# Sitemap location
+Sitemap: https://www.sparkitservices.in/sitemap.xml
