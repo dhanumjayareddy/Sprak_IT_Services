@@ -18,8 +18,12 @@ document.addEventListener('DOMContentLoaded', function() {
             // Prevent body scroll when menu is open
             if (navbarMenu.classList.contains('active')) {
                 document.body.style.overflow = 'hidden';
+                document.body.style.position = 'fixed';
+                document.body.style.width = '100%';
             } else {
                 document.body.style.overflow = '';
+                document.body.style.position = '';
+                document.body.style.width = '';
             }
         });
         
@@ -31,6 +35,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 mobileMenuToggle.classList.remove('active');
                 navbarMenu.classList.remove('active');
                 document.body.style.overflow = '';
+                document.body.style.position = '';
+                document.body.style.width = '';
             });
         });
         
@@ -42,6 +48,8 @@ document.addEventListener('DOMContentLoaded', function() {
                     mobileMenuToggle.classList.remove('active');
                     navbarMenu.classList.remove('active');
                     document.body.style.overflow = '';
+                    document.body.style.position = '';
+                    document.body.style.width = '';
                 }
             }
         });
@@ -53,6 +61,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 mobileMenuToggle.classList.remove('active');
                 navbarMenu.classList.remove('active');
                 document.body.style.overflow = '';
+                document.body.style.position = '';
+                document.body.style.width = '';
             }
         });
         
@@ -62,8 +72,36 @@ document.addEventListener('DOMContentLoaded', function() {
                 mobileMenuToggle.classList.remove('active');
                 navbarMenu.classList.remove('active');
                 document.body.style.overflow = '';
+                document.body.style.position = '';
+                document.body.style.width = '';
             }
         });
+        
+        // Handle touch gestures for swipe to close
+        let touchStartX = 0;
+        let touchEndX = 0;
+        
+        navbarMenu.addEventListener('touchstart', function(e) {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+        
+        navbarMenu.addEventListener('touchend', function(e) {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        });
+        
+        function handleSwipe() {
+            if (touchEndX < touchStartX - 50) {
+                // Swipe left - close menu
+                if (navbarMenu.classList.contains('active')) {
+                    mobileMenuToggle.classList.remove('active');
+                    navbarMenu.classList.remove('active');
+                    document.body.style.overflow = '';
+                    document.body.style.position = '';
+                    document.body.style.width = '';
+                }
+            }
+        }
     } else {
         console.error('Mobile menu elements not found');
     }

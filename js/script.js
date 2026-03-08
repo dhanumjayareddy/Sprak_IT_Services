@@ -92,6 +92,18 @@ const testimonialSwiper = new Swiper('.testimonial-slider .swiper-container', {
     el: '.swiper-pagination',
     clickable: true,
   },
+  breakpoints: {
+    // when window width is >= 768px
+    768: {
+      slidesPerView: 1,
+      spaceBetween: 20,
+    },
+    // when window width is >= 1024px
+    1024: {
+      slidesPerView: 2,
+      spaceBetween: 30,
+    },
+  },
 });
 
 const companiesSwiper = new Swiper('.companies-carousel .swiper-container', {
