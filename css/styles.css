@@ -2489,6 +2489,38 @@ section {
   transform: scale(1.1);
 }
 
+/* Companies Carousel Pagination */
+.companies-carousel .swiper-pagination {
+  position: relative;
+  margin-top: 2rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.companies-carousel .swiper-pagination-bullet {
+  width: 10px;
+  height: 10px;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  opacity: 0.7;
+}
+
+.companies-carousel .swiper-pagination-bullet:hover {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+.companies-carousel .swiper-pagination-bullet-active {
+  background: var(--primary-color);
+  opacity: 1;
+  transform: scale(1.2);
+}
+
 /* Call to Action */
 .cta-section {
   background: linear-gradient(135deg, var(--primary-color), #FF8F4C);
@@ -2797,11 +2829,19 @@ section {
     padding: 1.5rem;
     height: 80px;
     width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .company-logo img {
     max-width: 100px;
     max-height: 50px;
+  }
+
+  .companies-carousel .swiper-pagination {
+    margin-top: 1.5rem;
+    padding: 0 1rem;
   }
 }
 
@@ -2828,10 +2868,18 @@ section {
     padding: 1rem;
     height: 70px;
     width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .company-logo img {
     max-width: 80px;
     max-height: 40px;
+  }
+
+  .companies-carousel .swiper-pagination {
+    margin-top: 1rem;
+    padding: 0 0.75rem;
   }
 }

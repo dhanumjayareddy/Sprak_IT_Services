@@ -107,7 +107,7 @@ const testimonialSwiper = new Swiper('.testimonial-slider .swiper-container', {
 });
 
 const companiesSwiper = new Swiper('.companies-carousel .swiper-container', {
-  slidesPerView: 2,
+  slidesPerView: 1,
   spaceBetween: 20,
   loop: true,
   autoplay: {
@@ -115,12 +115,18 @@ const companiesSwiper = new Swiper('.companies-carousel .swiper-container', {
     disableOnInteraction: false,
   },
   breakpoints: {
-    640: {
-      slidesPerView: 4,
+    768: {
+      slidesPerView: 2,
+      spaceBetween: 20,
     },
     1024: {
-      slidesPerView: 6,
+      slidesPerView: 4,
+      spaceBetween: 30,
     },
+  },
+  pagination: {
+    el: '.companies-carousel .swiper-pagination',
+    clickable: true,
   },
 });
 
