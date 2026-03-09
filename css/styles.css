@@ -943,10 +943,13 @@ section.success-metrics {
     z-index: 1000;
     overflow-y: auto;
     border-left: 1px solid rgba(255, 255, 255, 0.3);
+    display: flex;
+    visibility: hidden;
   }
   
   .navbar-menu.active {
     right: 0;
+    visibility: visible;
   }
   
   /* Premium overlay when menu is active */
@@ -1028,7 +1031,7 @@ section.success-metrics {
   }
   
   .mobile-menu-toggle {
-    display: flex;
+    display: flex !important;
     z-index: 1001;
     padding: 0.8rem;
     background: rgba(255, 255, 255, 0.95);
@@ -1092,6 +1095,19 @@ section.success-metrics {
   .mobile-menu-toggle.active span:nth-child(3) {
     transform: rotate(45deg) translate(-5px, -6px);
     background: var(--primary-color);
+  }
+  
+  /* Premium overlay when menu is active */
+  .navbar-menu.active::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(5px);
+    z-index: -1;
   }
   
   h1 {

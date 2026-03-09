@@ -1,8 +1,10 @@
-// Initialize AOS
+// Initialize AOS - Fast animations
 AOS.init({
-  duration: 800,
-  offset: 100,
-  once: true
+  duration: 300,        // Reduced from 800ms to 300ms (much faster)
+  offset: 50,           // Reduced from 100 to 50 (trigger earlier)
+  once: true,           // Keep once: true (animation happens only once)
+  delay: 0,             // No delay for instant appearance
+  easing: 'ease-out'    // Fast easing for quick animation
 });
 
 // GSAP Animations
@@ -20,10 +22,10 @@ gsap.to('.hero-image img', {
   }
 });
 
-// Floating shapes animation (additional GSAP for more control)
+// Floating shapes animation (faster movement)
 gsap.to('.shape-1', {
   y: '+=30',
-  duration: 4,
+  duration: 2,        // Reduced from 4s to 2s (faster movement)
   ease: 'power1.inOut',
   yoyo: true,
   repeat: -1
@@ -31,30 +33,30 @@ gsap.to('.shape-1', {
 
 gsap.to('.shape-2', {
   y: '+=20',
-  duration: 3,
+  duration: 1.5,      // Reduced from 3s to 1.5s (faster movement)
   ease: 'power1.inOut',
   yoyo: true,
   repeat: -1,
-  delay: 1
+  delay: 0.5         // Reduced from 1s to 0.5s (less delay)
 });
 
 gsap.to('.shape-3', {
   y: '+=25',
-  duration: 5,
+  duration: 2.5,      // Reduced from 5s to 2.5s (faster movement)
   ease: 'power1.inOut',
   yoyo: true,
   repeat: -1,
-  delay: 2
+  delay: 1           // Reduced from 2s to 1s (less delay)
 });
 
-// Animated counters
+// Animated counters - Fast animation
 function animateCounter(element, target) {
   gsap.fromTo(element, 
     { innerText: 0 },
     {
       innerText: target,
-      duration: 2,
-      ease: 'power1.out',
+      duration: 0.8,        // Reduced from 2s to 0.8s (much faster)
+      ease: 'power2.out',    // Faster easing
       snap: { innerText: 1 },
       onUpdate: function() {
         element.innerText = Math.floor(element.innerText);
@@ -71,10 +73,10 @@ function startCounters() {
   });
 }
 
-// Trigger counters on scroll
+// Trigger counters on scroll - Earlier trigger
 ScrollTrigger.create({
   trigger: '.success-metrics',
-  start: 'top 80%',
+  start: 'top 90%',         // Changed from 80% to 90% (trigger earlier)
   onEnter: startCounters,
   once: true
 });
