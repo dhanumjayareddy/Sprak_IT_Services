@@ -143,13 +143,19 @@ function closeModal(modalId) {
   document.body.style.overflow = 'auto';
 }
 
-// Event listeners for modal buttons
-document.getElementById('explore-programs').addEventListener('click', () => openModal('enrollment-modal'));
-document.getElementById('hire-talent').addEventListener('click', () => openModal('hiring-modal'));
-document.getElementById('partner-us').addEventListener('click', () => openModal('hiring-modal'));
-document.getElementById('enroll-cta').addEventListener('click', () => openModal('enrollment-modal'));
-document.getElementById('hire-talent-cta').addEventListener('click', () => openModal('hiring-modal'));
-document.getElementById('enroll-nav').addEventListener('click', () => openModal('enrollment-modal'));
+// Event listeners for modal buttons — guarded with null checks so missing
+// elements (which differ between index.html and services.html) don't crash.
+function bindModal(id, modalId) {
+  var el = document.getElementById(id);
+  if (el) el.addEventListener('click', () => openModal(modalId));
+}
+bindModal('explore-programs',  'enrollment-modal');
+bindModal('hire-talent',       'hiring-modal');
+bindModal('partner-us',        'hiring-modal');
+bindModal('enroll-cta',        'enrollment-modal');
+bindModal('enroll-now-cta',    'enrollment-modal');  // actual id in index.html
+bindModal('hire-talent-cta',   'hiring-modal');
+bindModal('enroll-nav',        'enrollment-modal');
 
 // Close modal when clicking on close button or outside
 document.querySelectorAll('.close-modal').forEach(closeBtn => {
