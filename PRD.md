@@ -1,10 +1,8 @@
-
-
 ---
-
 # Product Requirement Document (PRD)
 
 # Spark IT Services — Corporate Website
+
 
 ## 1. Product Overview
 
@@ -24,9 +22,7 @@ It should highlight:
 * Success stories
 
 The site should visually resemble **modern SaaS / consulting websites** (Stripe, Deel, Cognizant-style aesthetics).
-
 ---
-
 # 2. Target Users
 
 ### Candidate Segment
@@ -645,4 +641,3 @@ Job board
 Application tracking system
 
 ---
-
